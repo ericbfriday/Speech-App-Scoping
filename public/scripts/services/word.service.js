@@ -3,7 +3,7 @@ myApp.service('WordService', function($http){
     sv.definition = {
         data: []
     };
-    sv.wordToDefine = {};
+    sv.wordToDefine = {data: {}};
 
     sv.findDefinition = function(wordIn) {
         console.log('logging wordIn (service) ', wordIn);
@@ -17,9 +17,8 @@ myApp.service('WordService', function($http){
             data: sv.wordToDefine
         }).then(function (response) {
             console.log('response', response);
-            gs.wordResponse = response;
+            sv.wordResponse = response;
             console.log('logging response.data in word.service GET route', response.data);
-
         });
     };
 });
