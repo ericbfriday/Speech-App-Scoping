@@ -1,7 +1,7 @@
 var express = require('express');
 var router = require('express').Router();
 var bodyParser = require('body-parser');
-var request = require('request');
+var request = require('request'); 
 require('dotenv').config();
 // var path = require('path');
 // var mongoose = require('mongoose');
@@ -11,10 +11,12 @@ router.use(bodyParser.urlencoded({
   extended: true
 }));
 
-router.get('/', function (req, res) {
-  var searchWord = req.body.data;
-  console.log('logging searchWord -> ', searchWord);
+// Start Code Here - Add dependecies as needed
+router.post('/', function (req, res) {
 
+  var searchWord = req.body.word;
+  console.log('logging searchWord -> ', searchWord);
+  
   var wordDefinition = {
     url: 'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/' + searchWord + '/regions=us',
     headers: {

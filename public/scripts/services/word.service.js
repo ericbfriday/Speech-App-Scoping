@@ -3,16 +3,17 @@ myApp.service('WordService', function($http){
     sv.definition = {
         data: []
     };
-    sv.wordToDefine = {data: {}};
+    sv.wordToDefine = {};
 
     sv.findDefinition = function(wordIn) {
         console.log('logging wordIn (service) ', wordIn);
         sv.wordToDefine = {
-            data: wordIn
-        };
+            word: wordIn,
+            data: wordIn};
+ 
         console.log('logging wordToDefine (service) ', sv.wordToDefine);
         $http ({
-            method: 'GET',
+            method: 'POST',
             url: '/wordLookup',
             data: sv.wordToDefine
         }).then(function (response) {
