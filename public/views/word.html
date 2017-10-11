@@ -1,3 +1,19 @@
 <section>
-    <input type="text" placeholder="Word to search for" ng-model="wc.wordIn"><button ng-click="wc.wordSearch(wc.wordIn)">Search</button>    
+    <input type="text" placeholder="Word to search for" ng-model="wc.wordIn"><button ng-click="wc.wordSearch(wc.wordIn)">Search</button> <br>
+       <p>{{wc.wordResponse.data}}</p>
+       <hr>
+       <!-- <p ng-repeat="word in wc.wordResponse.data">{{word.lexicalEntries}}</p>
+       <hr> -->
+       <p ng-repeat="word in wc.wordResponse.data">{{word.lexicalEntries[$index].pronunciations[$index]}}</p>
+       <hr>
+       <p ng-repeat="word in wc.wordResponse.data">{{word.lexicalEntries[$index].pronunciations[$index].audioFile}}</p>
+       <hr>
+       <audio controls>
+            <source ng-src="{{word.lexicalEntries[$index].pronunciations[$index].audioFile}}" type="audio/mpeg">
+          Your browser does not support the audio element.
+       </audio><hr>
+       <h1>Definition</h1>
+       <p ng-repeat="word in wc.wordResponse.data">{{word.lecicalEntries[$index].entries[$index]}}</p>
+       <h1>Phonetic Spelling</h1>
+       <p ng-repeat="word in wc.wordResponse.data">{{word.lexicalEntries[$index].pronunciations[$index].phoneticSpelling}}</p>
 </section>

@@ -5,6 +5,8 @@ myApp.service('WordService', function($http){
     };
     sv.wordToDefine = {};
 
+    sv.wordResponse = {data: []};
+
     sv.findDefinition = function(wordIn) {
         console.log('logging wordIn (service) ', wordIn);
         sv.wordToDefine = {
@@ -18,8 +20,8 @@ myApp.service('WordService', function($http){
             data: sv.wordToDefine
         }).then(function (response) {
             console.log('response', response);
-            sv.wordResponse = response;
-            console.log('logging response.data in word.service GET route', response.data);
+            sv.wordResponse.data = response.data.results;
+            console.log('logging response.data in word.service POST route', response);
         });
     };
 });

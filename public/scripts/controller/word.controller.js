@@ -4,10 +4,11 @@ myApp.controller('WordController', function(WordService) {
     var vm = this;
     // vm.word = '';
     vm.definition = WordService.definition;
+    vm.wordResponse = WordService.wordResponse;
 
     vm.wordSearch = function(wordIn) {
         console.log('logging wordToDefine -> ', wordIn);
         WordService.findDefinition(wordIn);
+        
     };
-
  });
