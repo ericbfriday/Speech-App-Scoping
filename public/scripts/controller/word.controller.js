@@ -6,7 +6,7 @@ myApp.controller('WordController', function(WordService) {
     vm.wordResponse = WordService.wordResponse;
 
     vm.wordSearch = function(wordIn) {
-        console.log('logging wordToDefine -> ', wordIn);
+        // console.log('logging wordToDefine -> ', wordIn);
         WordService.findDefinition(wordIn);
     };
 
