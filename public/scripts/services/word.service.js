@@ -20,7 +20,7 @@ myApp.service('WordService', function($http){
             data: sv.wordToDefine
         }).then(function (response) {
             console.log('response', response);
-            sv.wordResponse.data = response.data.results[0].lexicalEntries[0];
+            sv.wordResponse.data = response.data.results[0];
             console.log('logging response.data.results.lexicalEntries in word.service POST route', sv.wordResponse);
         });
     };
