@@ -47,8 +47,8 @@
     <div ng-repeat="entries in word">
       <div ng-repeat="senses in entries track by $index">
         <div ng-repeat="definitions in senses">
-          <div ng-repeat="string in definitions">
-            {{string.definitions}}
+          <div ng-repeat="string in definitions track by $index">
+            {{string.definitions[$index]}}
           </div>
         </div>
       </div>
