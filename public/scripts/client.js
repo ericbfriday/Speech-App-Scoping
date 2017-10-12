@@ -1,4 +1,4 @@
-const myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'NavBar']);
+const myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
 console.log('myApp sourced');
 
 myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {

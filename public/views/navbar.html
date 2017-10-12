@@ -1,15 +1,18 @@
-<div ng-controller="NavCtrl" ng-cloak>
-    <md-content class="md-padding">
-        <md-nav-bar md-selected-nav-item="currentNavItem" ng-init="currentNavItem='home'" nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-href="#/home" name="home" value="home">
-                Home
-            </md-nav-item>
-            <md-nav-item md-nav-href="#/word" name="word" value="word">
-                Word
-            </md-nav-item>
-            <!-- <md-nav-item md-nav-href="#/aboutcode" name="aboutCode" value="aboutCode">
-                My Projects
-            </md-nav-item> -->
-        </md-nav-bar>
-    </md-content>
-</div>
+<div ng-controller="NavBarController as nc" ng-cloak>
+        <md-content class="md-padding">
+            <md-nav-bar md-selected-nav-item="nc.currentNavItem" nav-bar-aria-label="navigation links">
+                    <md-nav-item md-nav-href="#/home" name="home" value="home">
+                        Home
+                    </md-nav-item>
+                    <md-nav-item md-nav-href="#/word" name="word" value="word">
+                        Word
+                    </md-nav-item>
+                    <md-nav-item md-nav-href="#/login" name="Login" value="login">
+                        Login
+                    </md-nav-item>
+                    <md-nav-item md-nav-href="#/logout" name="logout" value="logout">
+                        logout
+                    </md-nav-item>
+            </md-nav-bar>
+        </md-content>
+    </div>

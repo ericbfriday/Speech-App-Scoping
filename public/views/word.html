@@ -33,19 +33,25 @@
   <button ng-click="wc.wordSearch(wc.wordIn)">Search</button>
   <hr>
   <!-- <ul><div ng-repeat="word in wc.wordResponse.data.lexicalEntries"><li>{{word}}</li></ul></div> -->
-  <ul>
-    <div ng-repeat="word in wc.wordResponse.data.lexicalEntries">
-      <div ng-repeat="entries in word">
-        <!-- <li>{{entries}}</li> -->
-        <div ng-repeat="senses in entries track by $index">
-          <div ng-repeat="definitions in senses">{{definitions[$index].definitions}}</div>
+  <!-- URL for MP3 Extraction -->
+  <div ng-repeat="word in wc.wordResponse.data.lexicalEntries">
+    <div ng-repeat="entries in word">
+      <div ng-repeat="senses in entries track by $index">
+        {{senses.audioFile}}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Definition Lookup -->
+  <div ng-repeat="word in wc.wordResponse.data.lexicalEntries">
+    <div ng-repeat="entries in word">
+      <div ng-repeat="senses in entries track by $index">
+        <div ng-repeat="definitions in senses">
+          <div ng-repeat="string in definitions">
+            {{string.definitions}}
+          </div>
         </div>
       </div>
     </div>
-  </ul>
-
-
-
-
-
+  </div>
 </section>
