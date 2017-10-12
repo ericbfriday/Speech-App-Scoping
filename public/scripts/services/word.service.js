@@ -1,5 +1,5 @@
 myApp.service('WordService', function($http){
-    var sv = this;
+    const sv = this;
     sv.definition = {
         data: []
     };

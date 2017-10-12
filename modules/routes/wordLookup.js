@@ -1,7 +1,8 @@
-var express = require('express');
-var router = require('express').Router();
-var bodyParser = require('body-parser');
-var request = require('request'); 
+'esversion: 6';
+const express = require('express');
+const router = require('express').Router();
+const bodyParser = require('body-parser');
+const request = require('request'); 
 require('dotenv').config();
 // var path = require('path');
 // var mongoose = require('mongoose');

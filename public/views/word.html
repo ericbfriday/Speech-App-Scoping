@@ -1,6 +1,6 @@
 <section>
     <input type="text" placeholder="Word to search for" ng-model="wc.wordIn"><button ng-click="wc.wordSearch(wc.wordIn)">Search</button> <br>
-       <p>{{wc.wordResponse.data}}</p>
+       <p>{{wc.wordResponse.data[$index]}}</p>
        <hr>
        <!-- <p ng-repeat="word in wc.wordResponse.data">{{word.lexicalEntries}}</p>
        <hr> -->
