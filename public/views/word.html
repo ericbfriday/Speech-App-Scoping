@@ -1,48 +1,22 @@
-<!-- <section> -->
-<!-- <input type="text" placeholder="Word to search for" ng-model="wc.wordIn"> -->
-<!-- <button ng-click="wc.wordSearch(wc.wordIn)">Search</button> -->
-<!-- <br> -->
-<!-- <p ng-repeat="word in wc.wordResponse"> -->
-<!-- <hr> -->
-<!-- <ul> -->
-<!-- <li ng-repeat="word in wc.wordResponse.data.lexicalEntries[0]">{{word}}</li> -->
-<!-- <li>Break to child.</li> -->
-<!-- <li ng-repeat="child in wc.word">{{child}}</li> -->
-<!-- </ul> -->
-<!-- Audio Testing -->
-<!-- <p ng-repeat="word in wc.wordResponse.data">{{word.lexicalEntries[$index].pronunciations[$index].audioFile}}</p>
-       <hr>
-       <audio controls>
-            <source ng-src="{{word.lexicalEntries[$index].pronunciations[$index].audioFile}}" type="audio/mpeg">
-          Your browser does not support the audio element.
-       </audio> -->
-<!-- End Audio Testing -->
-<!-- <hr> -->
-<!-- <h1>Definition</h1> -->
-<!-- <p ng-repeat="word in wc.wordResponse.data.lexicalEntries[0]">{{word[0].senses[0].definitions[0]}}. -->
-<!-- <p> -->
-<!-- <hr> -->
-<!-- <h1>Phonetic Spelling</h1> -->
-<!-- <p ng-repeat="pronunciations in wc.word.pronunciations">{{pronunciations}}</p> -->
-<!-- <hr> -->
-<!-- <h1>Audio File</h1> -->
-<!-- <p>{{wc.wordResponse[0].data[0].lexicalEntries[0].senses[0].pronunciations[0]}}</p> -->
-<!-- </section> -->
 <section>
+  <!-- Audio Testing -->
+
   <input type="text" placeholder="Word to search for" ng-model="wc.wordIn">
   <button ng-click="wc.wordSearch(wc.wordIn)">Search</button>
   <hr>
-  <!-- <ul><div ng-repeat="word in wc.wordResponse.data.lexicalEntries"><li>{{word}}</li></ul></div> -->
+  <h1>Phonetic Spelling</h1>
+  <p ng-repeat="pronunciations in wc.word.data.lexicalEntries">{{pronunciations}}</p>
+  <hr>
   <!-- URL for MP3 Extraction -->
-  <div ng-repeat="word in wc.wordResponse.data.lexicalEntries">
-    <div ng-repeat="entries in word">
-      <div ng-repeat="senses in entries track by $index">
-        {{senses.audioFile}}
-      </div>
-    </div>
-  </div>
+  <h1>Audio</h1>
+  <p>{{wc.mp3URL.data}}</p>
+  <hr>
+  <audio controls>
+      <source id="player" ng-src="{{wc.mp3URL.data}}" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio>
   <hr>
   <!-- Definition Lookup -->
+  <h1>Definition</h1>
   <div ng-repeat="word in wc.wordResponse.data.lexicalEntries">
     <div ng-repeat="entries in word">
       <div ng-repeat="senses in entries track by $index">

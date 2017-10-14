@@ -7,7 +7,7 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
     $mdThemingProvider
     .theme('default')
     .primaryPalette('blue')
-    .accentPalette('teal')
+    .accentPalette('blue')
     .warnPalette('red')
     .backgroundPalette('grey');
 
@@ -17,6 +17,12 @@ myApp.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
     }).when('/word', {
         templateUrl: 'views/word.html',
         controller: 'WordController as wc'
+    }).when('/letters', {
+        templateUrl: 'views/letters.html',
+        controller: 'LettersController as lc'
+    }).when('/wordlist', {
+        templateUrl: 'views/wordlist.html',
+        controller: 'WordListController as wlc'
     }).otherwise({
         redirectTo: '/'
     });
