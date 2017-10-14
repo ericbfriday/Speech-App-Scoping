@@ -5,6 +5,7 @@ myApp.controller('WordController', function(WordService) {
     vm.definition = WordService.definition;
     vm.wordResponse = WordService.wordResponse;
     vm.mp3URL = WordService.mp3URL;
+    vm.definitions = WordService.definitions;
 
     vm.wordSearch = function(wordIn) {
         // console.log('logging wordToDefine -> ', wordIn);

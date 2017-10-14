@@ -11,21 +11,14 @@
   <h1>Audio</h1>
   <p>{{wc.mp3URL.data}}</p>
   <hr>
-  <audio controls>
+  <!-- <audio controls>
       <source id="player" ng-src="{{wc.mp3URL.data}}" type="audio/mpeg"> Your browser does not support the audio element.
-    </audio>
+    </audio> -->
+    <div ng-repeat="audio in event.audios">
+        <div audios code="audio"></div>
+    </div>
   <hr>
   <!-- Definition Lookup -->
   <h1>Definition</h1>
-  <div ng-repeat="word in wc.wordResponse.data.lexicalEntries">
-    <div ng-repeat="entries in word">
-      <div ng-repeat="senses in entries track by $index">
-        <div ng-repeat="definitions in senses">
-          <div ng-repeat="string in definitions track by $index">
-            {{string.definitions[$index]}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div ng-repeat="def in wc.definitions.data">{{def}}</div>
 </section>
