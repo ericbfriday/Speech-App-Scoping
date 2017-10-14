@@ -12,6 +12,8 @@ myApp.service('WordService', function($http){
             word: wordIn,
             data: wordIn
         };
+        // empties definitions array for new entries by setting length to 0
+        sv.definitions.length = 0;
         // console.log('logging wordToDefine (service) ', sv.wordToDefine);
         $http ({
             method: 'POST',
@@ -31,14 +33,12 @@ myApp.service('WordService', function($http){
             // end URL extraction logic
 
             // Definition extraction logic below
-            // empties definitions array for new entries by setting length to 0
-            sv.definitions.length = 0;
             // provides shorter location for array looping
             sv.definitionLocation = response.data.results[0].lexicalEntries[0].entries;
             // loops through arrays to extract definitions
-            for (let i = 0; i < sv.definitionLocation.length; i ++){
+            for (var i = 0; i < sv.definitionLocation.length; i ++){
                 // console.log('logging definitions ', sv.definitionLocation[i]);
-                for (let j = 0; j < sv.definitionLocation[i].senses.length; i++){
+                for (var j = 0; j < sv.definitionLocation[i].senses.length; i++){
                     // console.log('loggin senses ', sv.definitionLocation[i].senses[j].definitions[j]);
                     sv.definitions.data.push(sv.definitionLocation[i].senses[j].definitions[j]);
                     // console.log('loggin sv.definitions ->', sv.definitions); 
@@ -48,7 +48,6 @@ myApp.service('WordService', function($http){
             // used below for troubleshooting
             // console.log('logging response.data.results.lexicalEntries in word.service POST route', sv.wordResponse);
             // console.log('logging sv.definitions ', sv.definitions);
-            
             
         });
     };
